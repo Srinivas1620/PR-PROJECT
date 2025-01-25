@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Link to jQuery, Popper.js, and Bootstrap JS (Required for dropdowns, modals, etc.) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <!-- Link to external CSS (for additional styling) -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Add Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script>
+      // Function to show or hide sections based on the clicked section
+      function showsection(section) {
+        // Hide all sections
+        document.getElementById("home").style.display = "none";
+        document.getElementById("store").style.display = "none";
+        document.getElementById("connect").style.display = "none";
+        document.getElementById("signin").style.display = "none";
+        document.getElementById("register").style.display = "none";
+        document.getElementById("cart").style.display = "none";
+        
+        // Show the selected section
+        document.getElementById(section).style.display = "block";
+        
+        // Optionally, you can add active class to the clicked navbar item
+        let links = document.querySelectorAll('.nav-link');
+        links.forEach(link => link.classList.remove('active')); // Remove active from all links
+        document.querySelector(`a[onclick="showsection('${section}')"]`).classList.add('active'); // Add active to the clicked link
+      }
+
+      // On page load, show the 'home' section by default and hide others
+      window.onload = function() {
+        // Hide all sections
+        document.getElementById("home").style.display = "none";
+        document.getElementById("store").style.display = "none";
+        document.getElementById("connect").style.display = "none";
+        document.getElementById("signin").style.display = "none";
+        document.getElementById("cart").style.display = "none";
+        document.getElementById("register").style.display = "none"; // Hide 'connect' section
+        
+        // Show the 'home' section by default
+        showsection('home');
+      }
+    </script>
+  </head>
+  <body>
+    
+    <!-- Navbar (with Home, Cart, Store, Phone icons and DRIVESURE title) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-nav">
+      <div class="container-fluid">
+        <!-- Left section: Home icon and Cart icon -->
+        <div class="d-flex">
+          <a class="navbar-brand" onclick="showsection('home')" href="#">
+            <button class="fas fa-home home-dots" style = "border-width:5px;border-style:solid;border-color:azure;padding:8px; margin-top:1px"></button> <!-- Home Icon -->
+          </a>
+          <a onclick="showsection('cart')" class="nav-link" href="#">
+            <button class="fas fa-shopping-cart home-dots" style = "border-width:5px;border-style:solid;border-color:azure;"></button> <!-- Cart Icon -->
+          </a>
+        </div>
+
+        <!-- Center section: DRIVESURE title -->
+        <div class="d-flex justify-content-center flex-grow-1">
+          <a class="navbar-brand logo-txt" onclick="showsection('home')" href="#">DRIVESURE</a>
+        </div>
+
+        <!-- Right section: Store icon and Phone icon -->
+        <div class="d-flex">
+          <a onclick="showsection('store')" class="nav-link" href="#">
+            <button class="fas fa-store home-dots" style = "border-width:5px;border-style:solid;border-color:azure;"></button> <!-- Store Icon -->
+          </a>
+          <a onclick="showsection('connect')" class="nav-link" href="#">
+            <button class="fas fa-phone home-dots" style = "border-width:5px;border-style:solid;border-color:azure;"></button> <!-- Phone Icon -->
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home section (displayed by default) -->
+    <section id="home" class="active bg-black">
+      <div class="container-fluid">
+        <div class="row">
+          <div style="background-image: url('img/img1.jpg');" class="col-12 home-bg d-flex flex-column justify-content-start align-items-center">
+            <h1 class="text-center home-main-text text-white">Affordable Maintenance Reliable Service</h1>  
+          </div>
+        </div>
+
+        <div class = "d-flex flex-row  justify-content-center">
+          <div  class = " mt-5 col-12 d-flex flex-row justify-content-center">
+            <button style = "font-weight: bolder; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;" onclick = "showsection('signin')"class = "home-dots">Sign In</button>
+          </div>
+        </div>
+        <!-- BG section with cards, using a row for grid layout -->
+        <div class=" container-fluid">
+          <div class="row justify-content-center"> <!-- Add a row and center it -->
+            <!-- Home Card 1 -->
+            <div class="home-card col-md-4 col-sm-12">
+              <h2>Services</h2>
+              <p>Our services include oil changes, tire rotations, and brake inspections. We also offer a variety of other services to keep your vehicle running smoothly.</p>
+            </div>
+
+            <!-- Home Card 2 -->
+            <div class="home-card col-md-4 col-sm-12">
+              <h2>Insurance</h2>
+              <p>Our insurance policies are designed to protect you and your vehicle. We offer a variety of coverage options to meet your needs.</p>
+            </div>
+
+            <!-- Home Card 3 -->
+            <div style = "border-right-color: transparent;" class="home-card col-md-4 col-sm-12">
+              <h2>Road-Side Assistance</h2>
+              <p>Our road-side assistance program is available 24/7 to help you in case of an emergency. We offer towing, jump starts, and more.</p>
+            </div>
+
+            <div  class = " mt-5 col-12 d-flex flex-row justify-content-center">
+              <button style = "font-weight: bolder; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;" class = "home-dots" onclick = "showsection('store')">Browse Our services</button>
+            </div>
+            
+            <!-- Additional Info Section -->
+            <div style = "border-right-color: transparent;" class="home-card col-12 pb-5">
+              <h1>How does this work?</h1>
+              <p>DriveSure offers a win-win solution for both customers and small-scale mechanics by bundling annual servicing, insurance, and roadside assistance into a single subscription plan, significantly reducing overall costs. Typically, the rates for small cars could go up to 20k per month when paid separately, but DriveSure offers these services for 14k annually. This comprehensive package provides peace of mind and financial security for customers while supporting local mechanics by outsourcing maintenance work to their workshops, ensuring a steady stream of business and fostering community support. This approach promotes sustainability and convenience, benefiting all parties involved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Store section -->
+    <section id="store" >
+      <div class="container-fluid ">
+        <div class = "row bg-black">
+          <div class="col-12  d-flex bg-greyish flex-column justify-content-start align-items-center">
+            <h1 class="text-center store-main-text text-white glow home-dots">Low Prices all year long</h1>  
+          </div>
+          <div class = "col-12 col-lg-4  img-rad">
+            <div class = "bg-greyish store-cards img-rad">
+              <img src = "img/goldengine.jpg" class = "img-fluid img-rad" style = "height:200px;">
+            <h2 class = "p-2"> Vehicle Servicing</h2>
+            <div class = "d-flex flex-row justify-content-center">  
+              <div style = "width: 80px;" >
+                <h1 class = "pl-2 home-dots" style = "font-size: 10px;font-weight:bolder">+Add to cart</h1>
+              </div>
+            </div>
+            <h2 class = "pl-2 red-glow">4000₹</h2>
+            <p class = "p-2 pb-4">Our services include oil changes, tire rotations, and brake inspections. We also offer a variety of other services to keep your vehicle running smoothly.</p>
+            </div>
+          </div>
+          <div class = "col-12 col-lg-4  img-rad">
+            <div class = "bg-greyish store-cards img-rad">
+              <img src = "img/full.jpg" class = "img-fluid img-rad" style = "height:200px;">
+              <h2 class = "p-2"> Vehicle Checkup</h2>
+              <div class = "d-flex flex-row justify-content-center">  
+                <div style = "width: 80px;" >
+                  <h1 class = "pl-2 home-dots" style = "font-size: 10px;font-weight:bolder">+Add to cart</h1>
+                </div>
+              </div>
+              <h2 class = "pl-2 red-glow">1500₹</h2>
+              <p class = "p-2 pb-4">Ensure your vehicle's peak performance with our comprehensive and affordable DriveSure checkup service.</p>
+            </div>
+          </div>
+          <div class = "col-12 col-lg-4  img-rad">
+            <div class = "bg-greyish store-cards img-rad">
+              <img src = "img/fserv.jpeg" class = "img-fluid img-rad" style = "height:200px;">
+            <h2 class = "p-2">Yearly Subscription</h2>
+            <div class = "d-flex flex-row justify-content-center">  
+              <div style = "width: 80px;" >
+                <h1 class = "pl-2 home-dots" style = "font-size: 10px;font-weight:bolder">+Add to cart</h1>
+              </div>
+            </div>
+            <h2 class = "pl-2 red-glow">16000₹</h2>
+            <p class = "p-2 pb-4">Acess to everything DriveSure has to offer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id = "connect" class = "bg-black">
+      <div class = "bg-black">
+        <h1 class = "p-3" style = "color:red ;font-family: pacifico, cursive;">Our Office : </h1>
+        <div class = "container">
+          <div class = "row">
+            <div class = "col-5">
+              <img src = "img/vardhaman.png" class = "img-fluid" style = "border-radius:40px"/>
+            </div>
+            <div class = "col-7">
+              <h1 style = "color:red;">Vardhaman College of engineering</h1>
+              <p class = "text-white">DriveSure is proudly operated within the esteemed Vardhaman College of Engineering, leveraging the institution's innovative environment and resources to deliver top-notch vehicle maintenance services. This collaboration ensures that DriveSure remains at the forefront of automotive care, benefiting from the college's commitment to excellence and technological advancement.</p>
+            </div>
+            <div class = "text-white">
+              <h2 class = "mt-5">Gmail: srinivaspsl1620@gmail.com</h2>
+              <p class = "text-white p-5 m-5">Our partners list will soon be out. Thank You for Your Patience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+    <section id="signin">
+      <div class="bg-black sign-in d-flex flex-row justify-content-center">
+        <div class="d-flex flex-column justify-content-start" style="text-align: center;padding:15px;background-color: #e01e30;border-radius:30px;height: 55vh;width:30vw;margin-top: 10vh;">
+          <h1 class="text-white mb-5" style="font-weight: bold;">Sign In</h1>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" style="border-color:black; border-radius: 40px;">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" style="border-color:black; border-radius: 40px;">
+            </div>
+          </form>
+          <div class="d-flex flex-row justify-content-center">
+            <button type="button" class="btn home-dots mt-5" style="font-weight:bolder; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; border-radius: 40px;">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-center bg-black">
+        <button type="button" class="btn home-dots mb-3" style="font-weight:bolder; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; border-radius: 40px;" onclick = "showsection('register')">Not a member? Register Here!</button>
+      </div>
+    </section>
+    <section id="register">
+      <div class="bg-black sign-in d-flex flex-row justify-content-center mb-5" style = "height:100vh;">
+        <div class="d-flex flex-column justify-content-start " style="text-align: center;padding:15px;background-color: #e01e30;border-radius:30px;height: 70vh;width:30vw;margin-top: 10vh;">
+          <h1 class="text-white mb-5" style="font-weight: bold;">Register</h1>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" style="border-color:black; border-radius: 40px;">
+            </div>
+            <div class="form-group">
+              <input type="name" class="form-control" id="exampleInputname1" placeholder="Full Name" style="border-color:black; border-radius: 40px;">
+            </div>
+            <div class="form-group">
+              <input type="location" class="form-control" id="exampleInputLocation1" placeholder="Location in Hyderabad" style="border-color:black; border-radius: 40px;">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" style="border-color:black; border-radius: 40px;">
+            </div>
+          </form>
+          <div class="d-flex flex-row justify-content-center">
+            <button type="button" class="btn home-dots mt-5" style="font-weight:bolder; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; border-radius: 40px;">Submit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id = "cart">
+      <div class = "cart-page bg-black d-flex flex-column justify-content-center">
+        <div class = "d-flex flex-row justify-content-center">
+          <h1 class = "red-glow">PAY USING THIS QR:</h1>
+        </div>
+        <div class = "d-flex flex-row justify-content-center">
+          <img src = "img/qr.png" class = "img-fluid" style = "height:30vh;"/>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
