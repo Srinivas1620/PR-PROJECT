@@ -115,3 +115,58 @@
     height: 100vh;
 }
 
+@keyframes intenseAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(30px); /* Starts slightly lower */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* Ends at normal position */
+    }
+  }
+  
+  .block {
+    animation: intenseAppear 0.7s ease-out; /* Stronger, faster animation */
+    opacity: 0; /* Start hidden */
+  }
+  
+  .scroll-animate {
+    opacity: 0;
+    animation: intenseAppear 0.7s ease-out forwards;
+  }
+
+  .ani{
+    animation: intenseAppear 0.7s ease-out forwards;
+  }
+
+/* Add this CSS */
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fadeInUp {
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .animated {
+    animation: fadeInUp 1s ease-out;
+  }
+   
+  
+
+.sign-in{
+    height: 80vh;
+}
+
+.cart-page{
+    height: 100vh;
+}
+
